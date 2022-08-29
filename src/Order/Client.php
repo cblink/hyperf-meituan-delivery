@@ -144,7 +144,7 @@ class Client extends BaseClient
      */
     public function preCreateByShop(array $params)
     {
-        return $this->sendRequest('post', 'order/rider/location/h5url', $params);
+        return $this->sendRequest('post', 'order/preCreateByShop', $params);
     }
 
     /**
