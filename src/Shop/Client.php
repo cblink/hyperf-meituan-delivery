@@ -35,7 +35,7 @@ class Client extends BaseClient
      */
     public function queryShopArea(array $params)
     {
-        return $this->sendRequest('post', 'shop/query', $params);
+        return $this->sendRequest('post', 'shop/area/query', $params);
     }
 
     /**

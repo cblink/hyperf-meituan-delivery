@@ -74,7 +74,7 @@ class TestOrder extends TestCase
     {
         $response = $this->meituanDeliveryApp->shop->queryShopArea([
             'shop_id' => 'test_0001',
-            'delivery_service_code' => '100005',
+            'delivery_service_code' => '100030',
         ]);
         var_dump($response);
     }

@@ -36,7 +36,7 @@ class Client extends BaseClient
      */
     public function cancelOrder(array $params)
     {
-        return $this->sendRequest('post', 'order/cancel', $params);
+        return $this->sendRequest('post', 'order/delete', $params);
     }
 
     /**
@@ -48,7 +48,7 @@ class Client extends BaseClient
      */
     public function queryStatus(array $params)
     {
-        return $this->sendRequest('post', 'order/queryStatus', $params);
+        return $this->sendRequest('post', 'order/status/query', $params);
     }
 
     /**
