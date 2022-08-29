@@ -71,7 +71,7 @@ class BaseClient
         $response = $this->$method($this->url($uri), $data, $this->getBaseOptions());
 
         if ($response['code'] != 0) {
-            throw new MeituanException($response['message']);
+            throw new MeituanException($response['message'], $response['code']);
         }
         return $response;
     }
@@ -100,7 +100,7 @@ class BaseClient
         $waitSign = '';
         foreach ($params as $key => $item) {
             if ($item || $item === 0) {
-                $waitSign .= $key.$item;
+                $waitSign .= $key . $item;
             }
         }
 

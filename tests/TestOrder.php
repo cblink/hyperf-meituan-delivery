@@ -38,4 +38,45 @@ class TestOrder extends TestCase
         var_dump($response);
     }
 
+    public function testOrderCreate()
+    {
+        $lat = '22.5377174';
+        $lng = '113.94006';
+
+        $goods[] = [
+            'goodCount' => 1,
+            'goodName' => 'test',
+        ];
+
+        $orders = [
+            'delivery_id' => 410443303666872321,
+            'order_id' => 14,
+            'poi_seq' => 4001, // 美团的流水号加4为前缀
+            'shop_id' => 'test_0001',
+            'outer_order_source_desc' => 202,
+            'delivery_service_code' => '100005',
+            'receiver_name' => 'test',
+            'receiver_address' => 'test',
+            'receiver_phone' => '13900000000',
+            'receiver_lng' => (int)($lng * pow(10, 6)),
+            'receiver_lat' => (int)($lat * pow(10, 6)),
+            'goods_value' => 1,
+            'goods_weight' => 2,
+            'goods_detail' => json_encode(['goods' => $goods]),
+        ];
+
+        $response = $this->meituanDeliveryApp->order->createByShop($orders);
+
+        var_dump($response);
+    }
+
+    public function testGetShop()
+    {
+        $response = $this->meituanDeliveryApp->shop->queryShopArea([
+            'shop_id' => 'test_0001',
+            'delivery_service_code' => '100005',
+        ]);
+        var_dump($response);
+    }
+
 }
